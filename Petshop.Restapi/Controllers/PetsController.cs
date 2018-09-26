@@ -25,15 +25,13 @@ namespace Petshop.Restapi.Controllers
         public ActionResult<IEnumerable<Pet>> Get()
         {
             return _petService.GetAllPets();
-
-
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<Pet> Get(int id)
         {
-            return null;
+            return _petService.SortById(id);
 
         }
 
@@ -58,7 +56,7 @@ namespace Petshop.Restapi.Controllers
                 return BadRequest("Parameter Id anc Pet Id must be identical");
             }
 
-            return Ok();
+            return Ok(_petService.Update(pet));
         }
 
         // DELETE api/values/5

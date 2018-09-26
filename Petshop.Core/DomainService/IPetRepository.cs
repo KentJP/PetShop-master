@@ -9,11 +9,11 @@ namespace Petshop.Core.DomainService
     {
 
         Pet Create(Pet pet);
-        List<Pet> GetAllPets();
+        IEnumerable<Pet> GetAllPets();
         Pet Update(Pet PetUpdate);
         Pet Delete(int id);
         Pet SortById(int id);
-        List<Pet> SortByType();
+        IEnumerable<Pet> SortByType();
         
         
         

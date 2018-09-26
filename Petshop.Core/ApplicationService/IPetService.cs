@@ -9,13 +9,13 @@ namespace Petshop.Core.ApplicationService
     {
 
         Pet Create(Pet pet);
-        List<Pet> GetAllPets();
-        Pet Update(Pet Pet, Pet petToEdit);
+       List<Pet> GetAllPets();
+        Pet Update(Pet PetUpdate);
         Pet Delete(int id);
         Pet SortById(int id);
-        List<Pet> SortByType();
+        IEnumerable<Pet> SortByType();
         
-        List<Pet> GetCheapestPets();
+        IEnumerable<Pet> GetCheapestPets();
         Pet GetPetInstance();
         object Create();
         Pet NewPet(string Name,string Type,string Color,string PreviousOwner,double price);

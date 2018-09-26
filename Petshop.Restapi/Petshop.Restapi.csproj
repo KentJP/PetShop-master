@@ -17,7 +17,6 @@
     <ProjectReference Include="..\Petshop.Core.Entity1\Petshop.Core.Entity.csproj" />
     <ProjectReference Include="..\Petshop.Core\Petshop.Core.csproj" />
     <ProjectReference Include="..\Petshop.Infrastructure.Core\Petshop.Infrastructure.Data.csproj" />
-    <ProjectReference Include="..\Printer\Petshop.csproj" />
   </ItemGroup>
 
 </Project>

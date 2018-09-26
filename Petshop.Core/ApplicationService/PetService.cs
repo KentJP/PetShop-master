@@ -27,10 +27,10 @@ namespace Petshop.Core.ApplicationService
 
         public List<Pet> GetAllPets()
         {
-            return _PetRepo.GetAllPets();
+            return _PetRepo.GetAllPets().ToList();
         }
 
-        public List<Pet> GetCheapestPets()
+        public IEnumerable<Pet> GetCheapestPets()
         {
             return _PetRepo.GetAllPets()
                 .OrderBy(pet => pet.Price).Take(9).ToList();
@@ -43,27 +43,16 @@ namespace Petshop.Core.ApplicationService
 
         
 
-        public List<Pet> SortByType()
+        public IEnumerable<Pet> SortByType()
         {
             return _PetRepo.GetAllPets()
                 .OrderBy(pet => pet.Type)
                 .ToList();
         }
 
-        public Pet Update(Pet PetUpdate, Pet petToEdit)
+        public Pet Update(Pet PetUpdate)
         {
-            var pet = SortById(PetUpdate.Id);
-            petToEdit.Name = PetUpdate.Name;
-            petToEdit.Type = PetUpdate.Type;
-            petToEdit.Color = PetUpdate.Color;
-            petToEdit.PreviousOwner = PetUpdate.PreviousOwner;
-            petToEdit.SoldDate = PetUpdate.SoldDate;
-            petToEdit.Birthdate = PetUpdate.Birthdate;
-           
-            petToEdit.Price = PetUpdate.Price;
-            
-
-            return petToEdit;
+            return _PetRepo.Update(PetUpdate);
         }
 
         public Pet GetPetInstance()
@@ -91,7 +80,7 @@ namespace Petshop.Core.ApplicationService
                 Name = Name,
                 Type = Type,
                 Color = Color,
-                PreviousOwner = PreviousOwner,
+                PreviousOwner = new Owner(),
                 Price = price,
                 
                 

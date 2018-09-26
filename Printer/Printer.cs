@@ -137,8 +137,7 @@ namespace Petshop
             pet.Type = Console.ReadLine();
             Console.WriteLine("Type the color");
             pet.Color = Console.ReadLine();
-            Console.WriteLine("type previous owners name");
-            pet.PreviousOwner = Console.ReadLine();
+           
             
             pet.SoldDate = DateTime.Now;
             Console.WriteLine("Type the sale price");

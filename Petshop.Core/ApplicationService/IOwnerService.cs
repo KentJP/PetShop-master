@@ -9,9 +9,9 @@ namespace Petshop.Core.ApplicationService
     {
         Owner CreateOwner(Owner owner);
 
-        List<Owner> GetAllOwners();
+        IEnumerable<Owner> GetAllOwners();
 
-        Owner UpdateOwner(Owner ownerUpdate, Owner ownerToEdit);
+        Owner UpdateOwner(Owner ownerUpdate);
 
         Owner DeleteOwner(int id);
         Owner SortById(int id);

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop", "Printer\Petshop.csproj", "{D919B54C-0849-4A18-AB2D-1A6D73A78C27}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Core", "Petshop.Core\Petshop.Core.csproj", "{FA3FCB7A-A532-4C49-A8DA-47FF117C70D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E32E89AC-89CC-4AD9-BE5D-7BBE5953CEF2}"
@@ -17,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Core.Entity", "Pets
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Infrastructure.Data", "Petshop.Infrastructure.Core\Petshop.Infrastructure.Data.csproj", "{112CE7D3-2409-45C4-9C4D-2644479C0FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Petshop.Restapi", "Petshop.Restapi\Petshop.Restapi.csproj", "{FAE22148-895E-49D6-9ED8-C1EA7BB5A31F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop.Restapi", "Petshop.Restapi\Petshop.Restapi.csproj", "{FAE22148-895E-49D6-9ED8-C1EA7BB5A31F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D919B54C-0849-4A18-AB2D-1A6D73A78C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D919B54C-0849-4A18-AB2D-1A6D73A78C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D919B54C-0849-4A18-AB2D-1A6D73A78C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D919B54C-0849-4A18-AB2D-1A6D73A78C27}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA3FCB7A-A532-4C49-A8DA-47FF117C70D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA3FCB7A-A532-4C49-A8DA-47FF117C70D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA3FCB7A-A532-4C49-A8DA-47FF117C70D0}.Release|Any CPU.ActiveCfg = Release|Any CPU

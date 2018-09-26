@@ -22,10 +22,10 @@ namespace Petshop.Restapi.Controllers
 
 
         }
-
+        [HttpGet]
         public ActionResult<IEnumerable<Owner>> Get()
         {
-            return _ownerService.GetAllOwners();
+            return _ownerService.GetAllOwners().ToList();
 
 
         }
@@ -50,7 +50,8 @@ namespace Petshop.Restapi.Controllers
         }
 
         // PUT: api/Owner/5
-        public ActionResult Put(int id, [FromBody] Owner owner)
+        [HttpPut("{id}")]
+        public ActionResult<Owner> Put(int id, [FromBody] Owner owner)
         {
             if (id < 1 || id != owner.id)
             {
@@ -62,7 +63,7 @@ namespace Petshop.Restapi.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public ActionResult<Pet> Delete(int id)
+        public ActionResult<Owner> Delete(int id)
         {
             _ownerService.DeleteOwner(id);
             return Ok("Everything works");

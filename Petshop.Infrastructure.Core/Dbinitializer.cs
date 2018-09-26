@@ -2,18 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Petshop.Infrastructure.Core
+namespace Petshop.Infrastructure.Data
 {
-    public static class FakeDB
+    public class Dbinitializer
     {
-        public static List<Pet> Pets;
-        public static List<Owner> OwnersList;
 
-        public static void InitializeData()
+        public static void SeedDB(PetAppContext ptx)
         {
+            ptx.Database.EnsureDeleted();
+            ptx.Database.EnsureCreated();
 
-            var Owner1 = new Owner()
+            var Owner1 = ptx.Owners.Add(new Owner()
 
             {
                 FirstName = "Kenny",
@@ -25,12 +26,12 @@ namespace Petshop.Infrastructure.Core
 
 
 
-            };
-            var Owner2 = new Owner()
+            }).Entity;
+            var Owner2 = ptx.Owners.Add(new Owner()
 
             {
                 FirstName = "Frederik",
-                id = 99,
+                id = 82,
                 LastName = "Tubæk",
                 Email = "Frederiker12@hotmail.com",
                 PhoneNumber = "29427511",
@@ -38,13 +39,13 @@ namespace Petshop.Infrastructure.Core
 
 
 
-            };
+            }).Entity;
 
-            var Owner3 = new Owner()
+            var Owner3 = ptx.Owners.Add(new Owner()
 
             {
                 FirstName = "Daniel",
-                id = 99,
+                id = 84,
                 LastName = "Rasmussen",
                 Email = "Helpimadad@hotmail.com",
                 PhoneNumber = "99214280",
@@ -52,8 +53,8 @@ namespace Petshop.Infrastructure.Core
 
 
 
-            };
-            var Pet1 = new Pet()
+            }).Entity;
+            var Pet1 = ptx.Pets.Add(new Pet()
             {
                 Id = 1,
                 Type = "Dog",
@@ -63,9 +64,9 @@ namespace Petshop.Infrastructure.Core
                 Birthdate = new DateTime(2015, 6, 2),
                 SoldDate = DateTime.Now,
                 Price = 500
-            };
+            });
 
-            var Pet2 = new Pet()
+            var Pet2 = ptx.Pets.Add(new Pet()
             {
                 Id = 2,
                 Type = "Cat",
@@ -76,30 +77,30 @@ namespace Petshop.Infrastructure.Core
                 SoldDate = DateTime.Now,
                 Price = 1000000
 
-            };
-            var Pet3 = new Pet()
+            });
+            var Pet3 = ptx.Pets.Add(new Pet()
             {
                 Id = 3,
                 Type = "Bird",
                 Name = "Charlie",
                 Color = "Red",
-                PreviousOwner = Owner3,
+                PreviousOwner = Owner1,
                 Birthdate = new DateTime(2017, 11, 30),
                 SoldDate = DateTime.Now,
                 Price = 200
-            };
-                var Pet4 = new Pet()
-                {
-                    Id = 4,
-                    Type = "Dog",
-                    Name = "Fluffy",
-                    Color = "Brown",
-                    PreviousOwner = Owner1,
-                    Birthdate = new DateTime(2016, 7, 21),
-                    SoldDate = DateTime.Now,
-                    Price = 2000,
-                };
-             var Pet5 = new Pet()
+            });
+            var Pet4 = ptx.Pets.Add(new Pet()
+            {
+                Id = 4,
+                Type = "Dog",
+                Name = "Fluffy",
+                Color = "Brown",
+                PreviousOwner = Owner1,
+                Birthdate = new DateTime(2016, 7, 21),
+                SoldDate = DateTime.Now,
+                Price = 2000,
+            });
+            var Pet5 = ptx.Pets.Add(new Pet()
             {
                 Id = 5,
                 Type = "Cat",
@@ -107,23 +108,23 @@ namespace Petshop.Infrastructure.Core
                 Color = "Orange",
                 PreviousOwner = Owner2,
                 Birthdate = new DateTime(2010, 8, 4),
-                 SoldDate = DateTime.Now,
+                SoldDate = DateTime.Now,
                 Price = 300,
-            };
+            });
 
-            var Pet6 = new Pet()
+            var Pet6 = ptx.Pets.Add(new Pet()
             {
                 Id = 6,
                 Type = "Fish",
                 Name = "Goldie",
                 Color = "Yellow",
-                PreviousOwner = Owner3,
+                PreviousOwner = Owner1,
                 Birthdate = new DateTime(2018, 8, 22),
                 SoldDate = DateTime.Now,
                 Price = 400,
-            };
+            });
 
-            var Pet7 = new Pet()
+            var Pet7 = ptx.Pets.Add(new Pet()
             {
                 Id = 7,
                 Type = "Goat",
@@ -133,9 +134,9 @@ namespace Petshop.Infrastructure.Core
                 Birthdate = new DateTime(2018, 8, 31),
                 SoldDate = DateTime.Now,
                 Price = 650,
-            };
+            });
 
-            var Pet8 = new Pet()
+            var Pet8 = ptx.Pets.Add(new Pet()
             {
                 Id = 8,
                 Type = "Hedgehog",
@@ -145,27 +146,23 @@ namespace Petshop.Infrastructure.Core
                 Birthdate = new DateTime(2014, 3, 25),
                 SoldDate = DateTime.Now,
                 Price = 350,
-            };
+            });
 
-            var Pet9 = new Pet()
+            var Pet9 = ptx.Pets.Add(new Pet()
             {
                 Id = 9,
                 Type = "Cat",
                 Name = "Floofball",
                 Color = "Grey",
-                PreviousOwner = Owner3,
+                PreviousOwner = Owner2,
                 Birthdate = new DateTime(2012, 9, 16),
                 SoldDate = DateTime.Now,
                 Price = 450,
-            };
+            });
 
-            Pets = new List<Pet> { Pet1, Pet2, Pet3, Pet4, Pet5, Pet6, Pet7, Pet8, Pet9 };
+           
 
-            
-
-            OwnersList = new List<Owner>{Owner1, Owner2, Owner3};
+            ptx.SaveChanges();
         }
-
     }
 }
-

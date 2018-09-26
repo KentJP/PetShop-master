@@ -28,14 +28,14 @@ namespace Petshop.Core.ApplicationService
             return _ownerRepository.DeleteOwner(id);
         }
 
-        public List<Owner> GetAllOwners()
+        public IEnumerable<Owner> GetAllOwners()
         {
             return _ownerRepository.GetAllOwners();
         }
 
-        public Owner UpdateOwner(Owner ownerUpdate, Owner ownerToEdit)
+        public Owner UpdateOwner(Owner ownerUpdate)
         {
-            return _ownerRepository.UpdateOwner(ownerUpdate, ownerToEdit);
+            return _ownerRepository.UpdateOwner(ownerUpdate);
         }
 
         public Owner SortById(int id)

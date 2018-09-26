@@ -10,7 +10,7 @@ namespace Petshop.Core.Entity
         public string Type { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
-        public string PreviousOwner { get; set; }
+        public Owner PreviousOwner { get; set; }
         public DateTime Birthdate { get; set; }
         public DateTime SoldDate { get; set; }
         public double Price { get; set; }
